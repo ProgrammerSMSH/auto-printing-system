@@ -1,0 +1,11 @@
+# Disable directory browsing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^(\.env|composer\.json|composer\.lock|\.gitignore)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to writable directory
+RedirectMatch 403 ^/writable/.*$
